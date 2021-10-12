@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_10_07_022144) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.date "birthdate"
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
