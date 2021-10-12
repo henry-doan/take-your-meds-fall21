@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_07_022144) do
+ActiveRecord::Schema.define(version: 2021_10_08_002914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.string "title"
-    t.text "description"
+    t.string "description"
     t.bigint "medication_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 2021_10_07_022144) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.date "birthdate"
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
