@@ -18,7 +18,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-
   def update 
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -29,12 +28,9 @@ class Api::UsersController < ApplicationController
   end 
 
   def destroy
-    User.find(params[:id])
-    @user.destroy
+    User.find(params[:id]).destroy
     render json: { message: 'User has been deleted' }
   end
-
-
 
   private 
     def user_params
