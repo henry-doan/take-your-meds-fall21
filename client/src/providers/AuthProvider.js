@@ -14,7 +14,6 @@ const AuthProvider = ({ children }) => {
         history.push("/");
       })
     .catch( res => {
-      debugger
       console.log(res);
     })
   }
