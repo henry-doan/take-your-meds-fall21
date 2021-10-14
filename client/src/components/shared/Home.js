@@ -6,7 +6,7 @@ const Home = () => (
   <>
   <Header as="h3" textAlign="center">Welcome </Header>
   <Medications /> 
-  <Comments />
+  {/* <Comments /> */}
   </>
 )
 
