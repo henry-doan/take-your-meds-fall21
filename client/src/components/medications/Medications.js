@@ -1,12 +1,12 @@
 import MedicationForm from './MedicationForm';
 import AllMedications from './AllMedications';
 
-const Lists = () => (
+const Medications = () => (
   <>
-    <h1>Lists</h1>
+    <h1>My Medications</h1>
     <MedicationForm />
     <AllMedications />
   </>
 )
 
-export default Lists;
+export default Medications;

@@ -1,6 +1,6 @@
 class Api::MedicationsController < ApplicationController
   # before_action :set_list, only: [:show, :update, des]
-  before_action :set_user
+  #before_action :set_user
 
   def index 
     render json: @current_user.medications  
@@ -39,8 +39,8 @@ class Api::MedicationsController < ApplicationController
       params.require(:medicaiton).permit(:name, :nickname, :strength, :dosage)
     end
 
-    def set_user
-      @current_user = User.find(params[:user_id])
-    end
+    # def set_user
+    #   @current_user = User.find(params[:user_id])
+    # end
 end
 

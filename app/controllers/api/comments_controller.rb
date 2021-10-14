@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-	before_action :set_medication
+	#before_action :set_medication
 		# before_action :set_list, only: [:show, :update, des]
 		
 	def index 
@@ -40,7 +40,7 @@ class Api::CommentsController < ApplicationController
 			params.require(:comment).permit(:title, :description)
 		end
 
-		def set_medication
-			@medication = Medication.find(params[:medication_id])
-		end		
+		# def set_medication
+		# 	@medication = Medication.find(params[:medication_id])
+		# end		
 end
