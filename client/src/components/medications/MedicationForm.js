@@ -26,28 +26,28 @@ const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, u
         <input 
           name="name"
           value={medication.name} 
-          onChange={(e) => setMedication({ ...medication, title: e.target.value })}
+          onChange={(e) => setMedication({ ...medication, name: e.target.value })}
           required
           placeholder="Medication Name"
         />
         <input 
           name="nickname"
           value={medication.nickname} 
-          onChange={(e) => setMedication({ ...medication, title: e.target.value })}
+          onChange={(e) => setMedication({ ...medication, nickname: e.target.value })}
           required
           placeholder="Medication Nickname"
         />
         <input 
           name="strength"
           value={medication.strength} 
-          onChange={(e) => setMedication({ ...medication, title: e.target.value })}
+          onChange={(e) => setMedication({ ...medication, strength: e.target.value })}
           required
           placeholder="Medication Strength"
         />
         <input 
           name="dosage"
           value={medication.dosage} 
-          onChange={(e) => setMedication({ ...medication, title: e.target.value })}
+          onChange={(e) => setMedication({ ...medication, dosage: e.target.value })}
           required
           placeholder="Medication Dosage"
         />
