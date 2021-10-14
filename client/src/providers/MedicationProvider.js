@@ -19,8 +19,8 @@ const MedicationProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
-  const addMedication = (list) => {
-    axios.post('/api/lists', { list })
+  const addMedication = (medication) => {
+    axios.post('/api/medications', { medication })
       .then( res => {
         setMedications([...medications, res.data])
       })
@@ -57,7 +57,7 @@ const MedicationProvider = ({ children }) => {
       updateMedication: updateMedication,
       deleteMedication: deleteMedication,
     }}>
-      { children}
+      { children }
     </MedicationContext.Provider>
   )
 
