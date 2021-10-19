@@ -1,49 +1,31 @@
-import { useState, useEffect } from 'react';
+import { CommentConsumer } from "../../providers/CommentProvider";
+import { useEffect } from "react";
+import { Grid } from "semantic-ui-react";
 
-const CommentForm = ({ addComment, id, title, description, updateComment, setEdit }) => {
-  const [comment, setComment] = useState({ title: "", description: "" })
+const CommentList = ({ medicationId, grabComments, comments }) => {
 
-  useEffect( () => {
-    if (id) {
-      setComment({ title, description })
-    }
-  }, [])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (id) {
-      updateComment(id, comment)
-      setEdit(false)
-    } else {
-      addComment(comment)
-    }
-    setComment({ title: "", description: "" })
-  }
-
+  useEffect(() => {
+    grabComments(medicationId)
+  })
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input 
-          name="title"
-          value={comment.title}
-          onChange={(e) => setComment({...comment, title: e.target.value })}
+      <h1>Comments</h1>
+      <Grid columns={3} divided stackable>
+        { comments.map(c => 
+          <Grid.Column>
+            {c.comments}
+          </Grid.Column>                 
+          )}
 
-          required
-          placeholder="Title"
-        />
-         <input 
-          name="description"
-          value={comment.description}
-          onChange={(e) => setComment({...comment, description: e.target.value })}
-
-          required
-          placeholder="Description"
-        />
-        <button type="submit">Submit</button>
-      </form>
-
+      </Grid>
     </>
   )
 }
 
-export default CommentForm;
+
+const ConnectedCommentList = (props) => (
+  <CommentConsumer>
+    { value => <CommentList {...props} {...value}/>}
+  </CommentConsumer>
+)
+export default ConnectedCommentList;

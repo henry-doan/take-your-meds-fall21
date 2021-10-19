@@ -5,17 +5,16 @@ import { Button, Modal, Header} from 'semantic-ui-react';
 import ConnectedMedicationForm from "./MedicationForm";
 import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
-
+import Comments from  '../comments/Comments'
+import ConnectedMedicationTaking from "./MedicationTaking";
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
-  const [currently_taking, setCurrently_taking] = useState([false])
   const [open, setOpen] = useState(false)
   // new change
   // conditional rendering
   // modified edit use state
   useEffect( () => {
     showMeds()
-    archiveMeds()
   },[])
 
   const showMeds = () => {
@@ -24,19 +23,6 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
     .catch( err => console.log(err))
   }
 
-   const archiveMeds = (id, med ) => {
-    axios.put(`/api/medications/${match.params.id}`, { med })
-    .then( res => {
-      const updateMeds = currently_taking.map( m => {
-        if (m.id == id) {
-          return res.data
-        }
-        return m
-      })
-      setCurrently_taking(updateMeds)
-    })
-    .catch( err => console.log(err))
-   }
 
   const { id, name, nickname, strength, dosage,  } = medication
   return (
@@ -70,7 +56,6 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
         </Button>
       </Modal.Actions>
     </Modal>
-      <Button onClick={() => archiveMeds(id)}>Archive</Button>
       <Button color="red" onClick={() => deleteMedication(id)}> Delete</Button>
       <Link to="/" >
       <Button>Go Home</Button>
@@ -78,6 +63,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Link to="/comment" >
       <Button >Medication Comments</Button>
       </Link>
+      <Comments medicationId={id}/>
 
     </>
   )
