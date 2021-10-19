@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
     axios.post("/api/auth/sign_in", user)
       .then( res => {
         setUser(res.data.data);
-        history.push("/");
+        history.push("/home");
       })
       .catch( res => {
         console.log(res);
@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
     axios.delete("/api/auth/sign_out")
       .then( res => {
         setUser(null);
-        history.push('/login');
+        history.push('/');
       })
       .catch( res => {
         console.log(res);
