@@ -37,14 +37,18 @@ const MedicationProvider = ({ children }) => {
           return m
         })
         setMedications(updatedMedications)
+        window.location.href = `/medications/${id}`
+        //history.push(`/medications/`)
       })
       .catch( err => console.log(err))
   }
 
   const deleteMedication = (id) => {
-    axios.delete(`api/medications/${id}`)
+    axios.delete(`/api/medications/${id}`)
       .then(res => {
         setMedications(medications.filter( m => m.id !== id))
+        window.location.href = `/medications/${id}`
+
       })
       .catch( err => console.log(err))
   }
