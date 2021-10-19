@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 export const CommentContext = React.createContext();
@@ -12,22 +12,22 @@ const CommentProvider = ({ children }) => {
   //     .then( res => setComments(res.data) )
   //     .catch( err => console.log(err))
   // }, [])
-  const grabComments = () => {
-    axios.get('/api/comments')
+  const grabComments = (medicationId) => {
+    axios.get(`/api/medications/${medicationId}/comments`)
       .then( res => setComments(res.data) )
       .catch( err => console.log(err))
   }
 
-  const addComment = (comment) => {
-    axios.post('/api/comments', { comment })
+  const addComment = (medicationId, comment) => {
+    axios.post(`/api/medications/${medicationId}/comments`, { comment })
       .then( res => {
         setComments([...comments, res.data])
       })
       .catch( err => console.log(err))
   }
 
-  const updateComment = (id, comment) => {
-    axios.put(`/api/comments/${id}`, { comment })
+  const updateComment = (medicationId, id, comment) => {
+    axios.put(`/api/medications/${medicationId}/comments/${id}`, { comment })
       .then(res => {
         const updatedComments = comments.map( c => {
           if (c.id == id) {
@@ -40,8 +40,8 @@ const CommentProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
-  const deleteComment = (id) => {
-    axios.delete(`api/comments/${id}`)
+  const deleteComment = (medicationId, id ) => {
+    axios.delete(`/api/medications/${medicationId}/comments/${id}`)
       .then(res => {
         setComments(comments.filter( c => c.id !== id))
       })

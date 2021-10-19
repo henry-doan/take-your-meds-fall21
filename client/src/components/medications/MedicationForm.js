@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 import { MedicationConsumer } from '../../providers/MedicationProvider';
+import { Button} from 'semantic-ui-react';
 
-const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, updateMedication }) => {
-  const [medication, setMedication] = useState({ name: "", nickname: "", strength: "", dosage:"" })
+const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, updateMedication, history }) => {
+  const [medication, setMedication] = useState({ name: "", nickname: "", strength: "", dosage:"" , currently_taking: true })
 
   useEffect( () => {
     if (id) {
       setMedication({ name, nickname, strength, dosage })
     }
-  })
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updateMedication(id, medication)
+      updateMedication(id, medication, history)
     } else {
       addMedication(medication)
     }
@@ -52,7 +53,7 @@ const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, u
           placeholder="Medication Dosage"
         />
         
-        <button type="submit">Submit</button>
+        <Button color='green' type="submit">Submit</Button>
       </form>
     </>
   )

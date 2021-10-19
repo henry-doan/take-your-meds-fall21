@@ -8,7 +8,8 @@ import { Container } from "semantic-ui-react";
 import FetchUser from './components/auth/FetchUser';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Welcome from './components/shared/Welcome';
-
+import Medications from './components/medications/Medications';
+import ShowMedication from './components/medications/ShowMedication';
 const App = () => (
   <>
 
@@ -19,8 +20,9 @@ const App = () => (
         <Route exact path="/" component={Welcome} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-
         <ProtectedRoute exact path="/home" component={Home} /> 
+        <ProtectedRoute exact path="/medications/" component={Medications} />
+        <ProtectedRoute exact path="/medications/:id" component={ShowMedication} />
         <Route component={NoMatch} />
       </Switch>
     </Container>
