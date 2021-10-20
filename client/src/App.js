@@ -10,6 +10,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import Welcome from './components/shared/Welcome';
 import Medications from './components/medications/Medications';
 import ShowMedication from './components/medications/ShowMedication';
+import ConnectedProfile from './components/auth/Profile';
 const App = () => (
   <>
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <ProtectedRoute exact path="/home" component={Home} /> 
+        <ProtectedRoute exact path="/profile" component={ConnectedProfile} /> 
         <ProtectedRoute exact path="/medications/" component={Medications} />
         <ProtectedRoute exact path="/medications/:id" component={ShowMedication} />
         <Route component={NoMatch} />
