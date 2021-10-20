@@ -47,7 +47,7 @@ const MedicationProvider = ({ children }) => {
     axios.delete(`/api/medications/${id}`)
       .then(res => {
         setMedications(medications.filter( m => m.id !== id))
-        window.location.href = `/medications/${id}`
+        window.location.href = `/medications/`
 
       })
       .catch( err => console.log(err))
