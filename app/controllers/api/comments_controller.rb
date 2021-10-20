@@ -1,11 +1,13 @@
 class Api::CommentsController < ApplicationController
+before_action :set_medication
+before_action :set_comment, only: [:show, :update, :destroy]
+
 
 	def index 
 		render json: @medication.comments  
 	end
 	
 	def show
-		@comment = @medication.comments.find(params[:id])
 		render json: @comment
 	end
 	
@@ -19,7 +21,6 @@ class Api::CommentsController < ApplicationController
 	end 
 	
 	def update
-			@comment = @medication.comments.find(params[:id])
 		if @comment.update(comment_params)
 				render json: @comment
 		else
@@ -28,7 +29,7 @@ class Api::CommentsController < ApplicationController
 	end 
 	
 	def destroy
-		@comment.medications.find(params[:id]).destroy
+		@comment.destroy
 		render json: { message: 'Comment has been deleted' }
 	end
 	
@@ -38,5 +39,12 @@ class Api::CommentsController < ApplicationController
 			params.require(:comment).permit(:title, :description)
 		end
 
+		def set_medication
+			@medication = Medication.find(params[:medication_id])
+		end
+
+		def set_comment
+			@comment = @medication.comments.find(params[:id])
+		end
 		
 end
