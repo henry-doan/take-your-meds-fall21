@@ -7,6 +7,10 @@ import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
 import Comments from  '../comments/Comments'
 import ConnectedMedicationTaking from "./MedicationTaking";
+import Comment from  '../comments/Comment'
+import CommentForm from '../comments/CommentForm'
+
+
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
   const [open, setOpen] = useState(false)
@@ -24,7 +28,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
   }
 
 
-  const { id, name, nickname, strength, dosage,  } = medication
+  const { id, name, nickname, strength, dosage  } = medication
   return (
     <>  
       {/* <Moment format="MM/DD/YY"> {created_at}</Moment> */}
@@ -59,9 +63,6 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Button color="red" onClick={() => deleteMedication(id)}> Delete</Button>
       <Link to="/" >
       <Button>Go Home</Button>
-      </Link>
-      <Link to="/comment" >
-      <Button >Medication Comments</Button>
       </Link>
       <Comments medicationId={id}/>
 

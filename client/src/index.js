@@ -14,10 +14,10 @@ ReactDOM.render(
   <AuthProvider>
     <MedicationProvider>
       <CommentProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    </CommentProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CommentProvider>
     </MedicationProvider>
   </AuthProvider>,
   document.getElementById('root')

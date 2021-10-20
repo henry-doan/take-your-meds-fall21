@@ -1,21 +1,33 @@
-import Comment from './Comment';
+import { CommentConsumer } from "../../providers/CommentProvider";
+import { useEffect, useState } from "react";
+import Comment from './Comment'
+import { withRouter } from "react-router-dom";
+const CommentList = ({ match, medicationId, grabComments, comments, deleteComment, updateComment }) => {
 
-const CommentList = ({ comments, deleteComment, updateComment }) => {
+  useEffect(() => {
+    grabComments(match.params.id)
+  }, [])
   return (
     <>
-      <ul>
-        {
+      <h1>Comments</h1>
+      {
           comments.map( c => 
-            <Comment
-              {...c} 
-              deleteComment={deleteComment} 
-              updateComment={updateComment}
-            />
-          )
-        }
-      </ul>
+             <Comment
+               {...c} 
+               deleteComment={deleteComment} 
+               updateComment={updateComment}
+             />
+           )
+         }
+
     </>
   )
 }
 
-export default CommentList;
+
+const ConnectedCommentList = (props) => (
+  <CommentConsumer>
+    { value => <CommentList {...props} {...value}/>}
+  </CommentConsumer>
+)
+export default withRouter(ConnectedCommentList);
