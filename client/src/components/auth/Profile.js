@@ -41,13 +41,13 @@ const Profile = ({ user, updateUser }) => {
         </Grid.Column>
         <Grid.Column width={8}>
           <h1>{user.user.first_name} {user.user.last_name}</h1>
-          <p>{user.user.age}</p>
-          <p>{user.user.height}</p>
-          <p>{user.user.weight}</p>
-          <p>{user.user.gender}</p>
-          <p>{user.user.blood}</p>
-          <p>{user.user.address}</p>
-          <p>{user.user.phone}</p>
+          <p>Age: {user.user.age}</p>
+          <p>Height: {user.user.height}</p>
+          <p>Weight: {user.user.weight}</p>
+          <p>Gender: {user.user.gender}</p>
+          <p>Blood: {user.user.blood}</p>
+          <p>Address: {user.user.address}</p>
+          <p>Phone: {user.user.phone}</p>
         </Grid.Column>
       </>
     )
