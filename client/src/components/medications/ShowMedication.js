@@ -9,7 +9,7 @@ import Comments from  '../comments/Comments'
 import ConnectedMedicationTaking from "./MedicationTaking";
 import Comment from  '../comments/Comment'
 import CommentForm from '../comments/CommentForm'
-
+import { withRouter } from "react-router-dom";
 
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
@@ -76,4 +76,4 @@ const ConnectedShowMedication = (props) => (
   </MedicationConsumer>
 )
 
-export default ConnectedShowMedication;
+export default withRouter(ConnectedShowMedication);
