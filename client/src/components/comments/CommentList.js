@@ -2,7 +2,7 @@ import { CommentConsumer } from "../../providers/CommentProvider";
 import { useEffect, useState } from "react";
 import Comment from './Comment'
 import { withRouter } from "react-router-dom";
-const CommentList = ({ match, medicationId, grabComments, comments, deleteComment, updateComment }) => {
+const CommentList = ({location,  match, medicationId, grabComments, comments, deleteComment, updateComment }) => {
 
   useEffect(() => {
     grabComments(match.params.id)

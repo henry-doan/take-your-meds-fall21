@@ -1,8 +1,9 @@
 import { CommentConsumer } from "../../providers/CommentProvider";
 import { useEffect, useState } from "react";
 import Comment from './Comment'
+import { withRouter } from "react-router-dom";
 
-const CommentForm = ({ addComment, medicationId, updateComment, title, description, id }) => {
+const CommentForm = ({ match, addComment, medicationId, updateComment, title, description, id }) => {
   const [comment, setComment] = useState({ title: '', description: ''})
 
   useEffect( ()=> {
@@ -14,7 +15,7 @@ const CommentForm = ({ addComment, medicationId, updateComment, title, descripti
   const handleSubmit = (e) => {
     e.preventDefault()
     if (id) {
-      updateComment(medicationId, id, comment)
+      updateComment(match.params.id, id, comment)
     } else {
       addComment(medicationId, comment)
     }
@@ -49,4 +50,4 @@ const ConnectedCommentForm = (props) => (
     { value => <CommentForm {...props} {...value}/>}
   </CommentConsumer>
 )
-export default ConnectedCommentForm;
+export default withRouter(ConnectedCommentForm);
