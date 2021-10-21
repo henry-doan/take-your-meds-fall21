@@ -149,7 +149,7 @@ const Profile = ({ user, updateUser }) => {
             label="Phone"
             required
           />
-          <Button>Update</Button>
+          <Button type="submit">Update</Button>
         </Grid.Column>
       </Form>
     )
@@ -157,7 +157,7 @@ const Profile = ({ user, updateUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    updateUser(user.id, formVals)
+    updateUser(user.user.id, formVals)
     setEditing(false)
     setFormValue({...formVals, file: ""})
   }
