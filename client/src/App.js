@@ -11,6 +11,7 @@ import Welcome from './components/shared/Welcome';
 import Medications from './components/medications/Medications';
 import ShowMedication from './components/medications/ShowMedication';
 import ConnectedProfile from './components/auth/Profile';
+import MedicationDetails from './components/pages/MedicationDetails';
 const App = () => (
   <>
 
@@ -24,6 +25,8 @@ const App = () => (
         <ProtectedRoute exact path="/home" component={Home} /> 
         <ProtectedRoute exact path="/profile" component={ConnectedProfile} /> 
         <ProtectedRoute exact path="/medications/" component={Medications} />
+        <ProtectedRoute exact path="/medicationdetails/" component={MedicationDetails} />
+
         <ProtectedRoute exact path="/medications/:id" component={ShowMedication} />
         <Route component={NoMatch} />
       </Switch>
