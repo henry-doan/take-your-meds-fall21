@@ -12,6 +12,9 @@ import Medications from './components/medications/Medications';
 import ShowMedication from './components/medications/ShowMedication';
 import ConnectedProfile from './components/auth/Profile';
 import MyMedicine from './components/pages/MyMedicine';
+import MedicationDetails from './components/pages/MedicationDetails';
+import Today from './components/pages/Today';
+
 const App = () => (
   <>
 
@@ -25,6 +28,9 @@ const App = () => (
         <ProtectedRoute exact path="/home" component={Home} /> 
         <ProtectedRoute exact path="/profile" component={ConnectedProfile} /> 
         <ProtectedRoute exact path="/medications/" component={MyMedicine} />
+        <ProtectedRoute exact path="/medications/" component={Medications} />
+        <ProtectedRoute exact path="/medicationdetails/" component={MedicationDetails} />
+        <ProtectedRoute exact path="/today" component={Today} />
         <ProtectedRoute exact path="/medications/:id" component={ShowMedication} />
         <Route component={NoMatch} />
       </Switch>
