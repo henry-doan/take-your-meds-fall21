@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { MedicationConsumer } from '../../providers/MedicationProvider';
-import { Button} from 'semantic-ui-react';
+import { Button, Form} from 'semantic-ui-react';
 
 const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, updateMedication, history }) => {
   const [medication, setMedication] = useState({ name: "", nickname: "", strength: "", dosage:"" , currently_taking: true })
@@ -23,29 +23,29 @@ const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, u
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input 
+      <Form onSubmit={handleSubmit}>
+        <Form.TextArea 
           name="name"
           value={medication.name} 
           onChange={(e) => setMedication({ ...medication, name: e.target.value })}
           required
           placeholder="Medication Name"
         />
-        <input 
+        <Form.Input 
           name="nickname"
           value={medication.nickname} 
           onChange={(e) => setMedication({ ...medication, nickname: e.target.value })}
           required
           placeholder="Medication Nickname"
         />
-        <input 
+        <Form.Input 
           name="strength"
           value={medication.strength} 
           onChange={(e) => setMedication({ ...medication, strength: e.target.value })}
           required
           placeholder="Medication Strength"
         />
-        <input 
+        <Form.Input 
           name="dosage"
           value={medication.dosage} 
           onChange={(e) => setMedication({ ...medication, dosage: e.target.value })}
@@ -54,7 +54,7 @@ const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, u
         />
         
         <Button color='green' type="submit">Submit</Button>
-      </form>
+      </Form>
     </>
   )
 }
