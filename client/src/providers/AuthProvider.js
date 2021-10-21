@@ -40,6 +40,15 @@ const AuthProvider = ({ children }) => {
       })
   }
   
+  const updateUser = (id, user) => {
+    axios.put(`/api/users/${id}`, { user })
+      .then(res => {
+        setUser(res.data)
+        window.location.href = `/users/${id}`
+        //history.push(`/users/`)
+      })
+      .catch( err => console.log(err))
+  }
   
   return (
     <AuthContext.Provider value={{
@@ -48,7 +57,8 @@ const AuthProvider = ({ children }) => {
       handleRegister: handleRegister,
       handleLogin: handleLogin,
       handleLogout: handleLogout,
-      setUser: (user) => setUser({ user })
+      setUser: (user) => setUser({ user }),
+      updateUser: updateUser
     }}>
       { children }
     </AuthContext.Provider>
