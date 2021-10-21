@@ -48,11 +48,11 @@ const Navbar = ({user, handleLogout, location, history }) => {
   return (
     <div>
       <Menu pointing secondary>
-        <Link to='/home'>
+        <Link to='/today'>
           <Menu.Item
-            name='home'
-            id='home'
-            active={location.pathname === '/'}
+            name='today'
+            id='today'
+            active={location.pathname === '/today'}
           />
         </Link>
           { rightNavItems() }
