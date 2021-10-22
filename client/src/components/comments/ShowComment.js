@@ -68,7 +68,6 @@ const ConnectedShowComment = (props) => (
   <CommentConsumer>
     { value => <ShowComment {...props} {...value} />}
   </CommentConsumer>
->
 )
 
 export default withRouter(ConnectedShowComment);
