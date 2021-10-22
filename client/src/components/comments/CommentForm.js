@@ -2,7 +2,7 @@ import { CommentConsumer } from "../../providers/CommentProvider";
 import { useEffect, useState } from "react";
 import Comment from './Comment'
 import { withRouter } from "react-router-dom";
-
+import { Button, Form } from 'semantic-ui-react';
 const CommentForm = ({ match, addComment, medicationId, updateComment, title, description, id }) => {
   const [comment, setComment] = useState({ title: '', description: ''})
 
@@ -23,23 +23,23 @@ const CommentForm = ({ match, addComment, medicationId, updateComment, title, de
   }
   return (
     <>
-      <form onSubmit={handleSubmit}>
-      <input
+      <Form onSubmit={handleSubmit}>
+      <Form.Input
           name='title'
           value={comment.title}
           onChange={(e) => setComment({...comment, title: e.target.value })}
           required
           placeholder="Comment Title"
         />
-        <input
+        <Form.Input
           name='description'
           value={comment.description}
           onChange={(e) => setComment({...comment, description: e.target.value })}
           required
           placeholder="Comment Description"
         />
-        <button type="submit">Submit</button>
-      </form>
+        <Button type="submit">Submit</Button>
+      </Form>
     </>
   )
 }

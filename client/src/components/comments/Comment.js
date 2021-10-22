@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CommentForm from './CommentForm';
 import { withRouter } from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 const Comment = ({match , medicationId, id, title, description, deleteComment, updateComment }) => {
   const [editing, setEdit] = useState(false)
 
@@ -23,9 +24,9 @@ const Comment = ({match , medicationId, id, title, description, deleteComment, u
             />
           </>
           :
-          <button onClick={() => setEdit(true)}>Edit</button>
+          <Button onClick={() => setEdit(true)}>Edit</Button>
         }
-        <button onClick={() => deleteComment( match.params.id ,id)}>Delete Comment</button>
+        <Button onClick={() => deleteComment( match.params.id ,id)}>Delete Comment</Button>
       </li>
     </>
   )

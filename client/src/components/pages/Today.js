@@ -19,9 +19,4 @@ const Today = () => (
 )
 
 
-<<<<<<< HEAD
 export default Today;
-
-=======
-export default Today;
->>>>>>> e6c10fc (pulling stuff down)
