@@ -2,8 +2,11 @@ import MedicationForm from '../medications/MedicationForm';
 import AllMyMedications from '../medications/AllMyMedications';
 import { Button, Segment } from 'semantic-ui-react';
 import ShowMedication from '../medications/ShowMedication';
+import { useState } from 'react';
 
-const MyMedicine = ({ MedicationForm}) => {
+const MyMedicine = ({ MedicationForm }) => {
+  const [on, setOn] = useState(false)
+   // class componen into a presentational component, and then use hooks to use features
   return(
   <>
   <Segment basic>
@@ -15,9 +18,7 @@ const MyMedicine = ({ MedicationForm}) => {
     <i class="plus icon"></i>
     </Button>
 
-    {/* <Segment>
-     {/* <MedicationForm /> */}
-     {/* </Segment> */} 
+      {/* <MedicationForm /> */}
   </Segment>
 
   </>
