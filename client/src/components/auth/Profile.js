@@ -36,6 +36,10 @@ const Profile = ({ user, updateUser }) => {
   const profileView = () => {
     return (
       <>
+        {
+          
+          user.user ? 
+          <>
         <Grid.Column width={4}>
           <Image src={ formVals.image || defaultImage } />
         </Grid.Column>
@@ -49,6 +53,10 @@ const Profile = ({ user, updateUser }) => {
           <p>Address: {user.user.address}</p>
           <p>Phone: {user.user.phone}</p>
         </Grid.Column>
+          </>
+          :
+          <p>Loading</p>
+        }
       </>
     )
   }
@@ -163,18 +171,27 @@ const Profile = ({ user, updateUser }) => {
   }
 
   return (
-    <Container>
-      <Grid>
+    <>
+    {
+      user.user ?
+      <>
+      <Container>
+        <Grid>
         <Grid.Row>
           { editing ? editView() : profileView() }
-          <Grid.Column>
-            <Button onClick={() => setEditing(!editing)}>
-              {editing ? 'Cancel' : 'Edit'}
-            </Button>
-          </Grid.Column>
-        </Grid.Row>
+        <Grid.Column>
+        <Button onClick={() => setEditing(!editing)}>
+          {editing ? 'Cancel' : 'Edit'}
+        </Button>
+      </Grid.Column>
+      </Grid.Row>
       </Grid>
-    </Container>
+      </Container>
+      </>
+      :
+      <p></p>
+    }
+    </>
   )
 }
 
