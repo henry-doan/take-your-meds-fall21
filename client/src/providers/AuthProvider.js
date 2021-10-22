@@ -44,7 +44,7 @@ const AuthProvider = ({ children }) => {
     axios.put(`/api/users/${id}`, { user })
       .then(res => {
         setUser(res.data)
-        window.location.href = `/users/${id}`
+        window.location.href = `/profile`
         //history.push(`/users/`)
       })
       .catch( err => console.log(err))
