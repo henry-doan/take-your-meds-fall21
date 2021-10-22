@@ -18,7 +18,7 @@ User.destroy_all
 			name: "Ibuprofen",
 			nickname: "Pain Reliever",
 			strength: "200mg",
-			dosage: "As needed, up to 800mg every 6 hours"
+			dosage: "As needed, up to 800mg every 6 hours",
 			currently_taking: true
 		)
 	

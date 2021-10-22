@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
     axios.post("/api/auth/sign_in", user)
       .then( res => {
         setUser(res.data.data);
-        history.push("/home");
+        history.push("/today");
       })
       .catch( res => {
         console.log(res);
