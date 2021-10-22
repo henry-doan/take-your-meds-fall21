@@ -19,6 +19,7 @@ User.destroy_all
 			nickname: "Pain Reliever",
 			strength: "200mg",
 			dosage: "As needed, up to 800mg every 6 hours"
+			currently_taking: true
 		)
 	
 		@medication1.comments.create(
@@ -31,6 +32,7 @@ User.destroy_all
 			nickname: "Antibiotic",
 			strength: "875mg",
 			dosage: "875mg once daily for 10 days",
+			currently_taking: true
 		)
 		
 		@medication2.comments.create(
@@ -43,6 +45,7 @@ User.destroy_all
 		nickname: "Cholesterol Med",
 		strength: "10mg",
 		dosage: "20mg, twice daily",
+		currently_taking: true
 	)
 		
 			@medication3.comments.create(
@@ -55,6 +58,7 @@ User.destroy_all
 		nickname: "Heartburn",
 		strength: "20mg",
 		dosage: "20mg, daily for 6 weeks",
+		currently_taking: true
 	)
 		
 			@medication4.comments.create(
