@@ -9,6 +9,13 @@ const Navbar = ({user, handleLogout, location, history }) => {
     if (user) {
       return (
         <Menu.Menu position='right'>
+          <Link to='/about'>
+            <Menu.Item
+              id='about'
+              name='about'
+              active={location.pathname === '/about'}
+              />
+          </Link>
           <Link to='/profile'>
             <Menu.Item
               id='profile'
