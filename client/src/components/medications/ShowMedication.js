@@ -6,6 +6,8 @@ import ConnectedMedicationForm from "./MedicationForm";
 import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
 import Comments from  '../comments/Comments'
+import ShowComment from  '../comments/ShowComment'
+
 import ConnectedMedicationTaking from "./MedicationTaking";
 import Comment from  '../comments/Comment'
 import CommentForm from '../comments/CommentForm'
@@ -64,7 +66,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Link to="/" >
       <Button>Go Home</Button>
       </Link>
-      <Comments medicationId={id}/>
+      <ShowComment medicationId={id}/>
 
     </>
   )
