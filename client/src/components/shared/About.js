@@ -5,7 +5,6 @@ import sean from '../../images/sean.png';
 import meg from '../../images/meg.png';
 import { Card } from 'semantic-ui-react';
 import styled from 'styled-components';
-
 function About(props) {
   return (
     <div>
@@ -24,6 +23,7 @@ function About(props) {
           </Card>
 					<Card>
           <img src={meg} alt="Meg" width="200px" />
+          <img src="../" />
           </Card>
         </Card.Content>
       </MyCard>

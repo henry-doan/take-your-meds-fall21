@@ -38,7 +38,7 @@ const CommentForm = ({ match, addComment, medicationId, updateComment, title, de
           required
           placeholder="Comment Description"
         />
-        <Button type="submit">Submit</Button>
+        <Button color="green" type="submit">Submit</Button>
       </Form>
     </>
   )
