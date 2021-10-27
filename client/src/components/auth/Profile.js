@@ -63,29 +63,10 @@ const Profile = ({ user, updateUser }) => {
 
   const editView = () => {
     return (
+
       <Form onSubmit={handleSubmit}>
-        <Grid.Column width={4}>
-          <Dropzone
-            onDrop={onDrop}
-            multiple={false}
-          >
-            {({ getRootProps, getInputProps, isDragActive }) => {
-              return (
-                <div
-                  {...getRootProps()}
-                  style={styles.dropzone}
-                >
-                  <input {...getInputProps()} />
-                  {
-                    isDragActive ?
-                      <p>Drop files here...</p> :
-                      <p>Try dropping some files here, or click to select files to upload.</p>
-                  }
-                </div>
-              )
-            }}
-          </Dropzone>
-        </Grid.Column>
+        <Grid>
+      <Grid.Row>
         <Grid.Column width={8}>
           <Form.Input
             name="first_name"
@@ -122,6 +103,8 @@ const Profile = ({ user, updateUser }) => {
             label="Height"
             required
           />
+         </Grid.Column>
+         <Grid.Column width={8}>
           <Form.Input
             name="weight"
             value={formVals.weight}
@@ -157,8 +140,18 @@ const Profile = ({ user, updateUser }) => {
             label="Phone"
             required
           />
+         </Grid.Column>
+         </Grid.Row>
+        <Grid.Row>
+<Grid.Column>
           <Button type="submit">Update</Button>
+          <Button onClick={() => setEditing(!editing)}>
+          {editing ? 'Cancel' : 'Edit'}
+          </Button>
         </Grid.Column>
+      
+        </Grid.Row>
+        </Grid>
       </Form>
     )
   }
@@ -176,15 +169,17 @@ const Profile = ({ user, updateUser }) => {
       user.user ?
       <>
       <Container>
+        <br/>
         <Grid>
-        <Grid.Row>
           { editing ? editView() : profileView() }
-        <Grid.Column>
-        <Button onClick={() => setEditing(!editing)}>
-          {editing ? 'Cancel' : 'Edit'}
+          {editing ? <> </> : 
+          
+          <Button onClick={() => setEditing(!editing)}>
+            edit
         </Button>
-      </Grid.Column>
-      </Grid.Row>
+
+          }
+
       </Grid>
       </Container>
       </>

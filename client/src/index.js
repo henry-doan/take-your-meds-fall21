@@ -6,6 +6,8 @@ import 'semantic-ui-css/semantic.min.css';
 import { initMiddleware } from 'devise-axios';
 import MedicationProvider from './providers/MedicationProvider';
 import CommentProvider from './providers/CommentProvider'
+import './index.css';
+
 initMiddleware()
 
 
