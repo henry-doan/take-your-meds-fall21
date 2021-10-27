@@ -26,7 +26,7 @@ const About = () => (
 		<Item><br></br>
 			<Item.Image size='small' src={meg} /><br></br>
 				<Item.Content><br></br>
-					<Item.Header><strong>Meg Garahm</strong></Item.Header>
+					<Item.Header><strong>Meg Graham</strong></Item.Header>
 						<Item.Meta>DevPoint Labs Final Project</Item.Meta> 
 							<Item.Extra>Developer of Take Your Meds.</Item.Extra> <br/>
 						<a href="https://www.linkedin.com/in/marygraham96"><Icon size='big' name='linkedin' /></a>
