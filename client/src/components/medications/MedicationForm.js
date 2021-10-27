@@ -1,7 +1,20 @@
 import { useState, useEffect } from 'react';
 import { MedicationConsumer } from '../../providers/MedicationProvider';
 import { Button, Form} from 'semantic-ui-react';
+import styled from 'styled-components';
 
+const SubmitButton = styled.button`
+  background-color: #50A646;
+  font-size: 20px;
+  color: white;
+  font-family: Verdana;
+  border-radius: 50px;
+  border: none;
+  display: inline-block;
+  padding: 15px 100px;
+  width: 100%;
+  margin: 0 auto;
+`
 
 const MedicationForm = ({ toggleForm, addMedication, name, nickname, strength, dosage, id, updateMedication, history }) => {
   const [medication, setMedication] = useState({ name: "", nickname: "", strength: "", dosage:"" , currently_taking: true })
@@ -55,7 +68,7 @@ const MedicationForm = ({ toggleForm, addMedication, name, nickname, strength, d
           placeholder="Medication Dosage"
         />
         
-        <Button color='green' type="submit">Submit</Button>
+        <SubmitButton type="submit">Submit</SubmitButton>
       </Form>
     </>
   )
