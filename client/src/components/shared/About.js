@@ -3,37 +3,63 @@ import kat from '../../images/kat.png';
 import thomas from '../../images/thomas.png';
 import sean from '../../images/sean.png';
 import meg from '../../images/meg.png';
-import { Card } from 'semantic-ui-react';
-import styled from 'styled-components';
-function About(props) {
-  return (
-    <div>
-      <h1>Four developers on a mission</h1>
-      <h2>to help you rememeber to take your meds.</h2>
-      <MyCard>
-        <Card.Content>
-          <Card>
-          <img src={kat} alt="Kat" width="200px"/>
-          </Card>
-          <Card>
-          <img src={thomas} alt="Thomas" width="200px" />
-          </Card>
-          <Card>
-          <img src={sean} alt="Sean" width="200px" />
-          </Card>
-					<Card>
-          <img src={meg} alt="Meg" width="200px" />
-          <img src="../" />
-          </Card>
-        </Card.Content>
-      </MyCard>
+import { Item, Segment, Icon } from 'semantic-ui-react';
 
-    </div>
-  );
-}
+
+const About = () => (
+	
+  <Item.Group>
+		<Segment>
+			<Item><br></br>
+				<Item.Image size='small' src={kat} /><br></br>
+					<Item.Content>	<br></br>
+						<Item.Header><strong>Kat Athay</strong></Item.Header>	
+							<Item.Meta>DevPoint Labs Final Project</Item.Meta>
+								<Item.Extra>Developer of Take Your Meds.</Item.Extra> <br/>
+							<a href="https://www.linkedin.com/in/katathay/"><Icon size='big' name='linkedin' /></a>
+						<a href="https://github.com/Kat4Kimi"><Icon size='big' name='github square' /></a> 
+					</Item.Content>
+			</Item>
+		</Segment>
+
+	<Segment>
+		<Item><br></br>
+			<Item.Image size='small' src={meg} /><br></br>
+				<Item.Content><br></br>
+					<Item.Header><strong>Meg Garahm</strong></Item.Header>
+						<Item.Meta>DevPoint Labs Final Project</Item.Meta> 
+							<Item.Extra>Developer of Take Your Meds.</Item.Extra> <br/>
+						<a href="https://www.linkedin.com/in/marygraham96"><Icon size='big' name='linkedin' /></a>
+					<a href="https://github.com/meggles781"><Icon size='big' name='github square' /></a>
+				</Item.Content>
+		</Item>			
+	</Segment>
+	<Segment>
+		<Item><br></br>
+			<Item.Image size='small' src={sean} /><br></br>
+				<Item.Content><br></br>
+					<Item.Header><strong>Sean Klindt</strong></Item.Header>
+						<Item.Meta>DevPoint Labs Final Project</Item.Meta>
+							<Item.Extra>Developer of Take Your Meds.</Item.Extra> <br/>
+						<a href="https://www.linkedin.com/in/sean-klindt/"><Icon size='big' name='linkedin' /></a>
+					<a href="https://github.com/sean-klindt"><Icon size='big' name='github square' /></a>
+				</Item.Content>
+		</Item>
+	</Segment>
+
+		<Segment>
+			<Item><br></br>
+				<Item.Image size='small' src={thomas} /><br></br>
+					<Item.Content><br></br>
+					<Item.Header><strong>Thomas Lohan</strong></Item.Header>
+						<Item.Meta>DevPoint Labs Final Project</Item.Meta>
+							<Item.Extra>Developer of Take Your Meds.</Item.Extra> <br/>
+						<a href="https://www.linkedin.com/in/thomas-lohan-55b2b519b"><Icon size='big' name='linkedin' /></a>
+					<a href="https://github.com/TLohan13"><Icon size='big' name='github square' /></a>
+				</Item.Content>
+			</Item>
+		</Segment>
+	</Item.Group>
+	);
 
 export default About;
-
-const MyCard = styled(Card)`
-  display: flex;
-`
