@@ -8,6 +8,7 @@ const Today = () => (
   <>
   <Segment basic>
     <h3>{moment().format('MMMM Do YYYY')}</h3>
+
     {/* <h1>{moment().format('h:mm:ss a')}</h1> */}
     <Clock />
   </Segment>

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 const Register = ({ handleRegister, history }) => {
   const [user, setUser] = useState({ email: '', password: '', passwordConfirmation: '',  }) 
@@ -13,6 +14,19 @@ const Register = ({ handleRegister, history }) => {
       alert('Passwords Do Not Match!')
      }
   }
+
+  const RegisterButton = styled.button`
+  background-color: #50A646;
+  font-size: 16px;
+  color: white;
+  font-family: Verdana;
+  border-radius: 50px;
+  border: none;
+  display: inline-block;
+  padding: 10px 10px;
+  width: 70%;
+  margin: 0 auto;
+`
   
   return (
     <Segment basic>
@@ -118,7 +132,7 @@ const Register = ({ handleRegister, history }) => {
           onChange={(e, { value }) => setUser({ ...user, phone: value })}
         />
         <Segment textAlign='center' basic>
-          <Button primary type='submit'>Submit</Button>
+          <RegisterButton primary type='submit'>Create Profile</RegisterButton>
         </Segment>
       </Form>
     </Segment>

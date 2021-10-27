@@ -36,6 +36,7 @@ const CommentProvider = ({ children }) => {
           return c
         })
         setComments(updatedComments)
+
       })
       .catch( err => console.log(err))
   }
@@ -43,7 +44,7 @@ const CommentProvider = ({ children }) => {
   const deleteComment = (medicationId, id ) => {
     axios.delete(`/api/medications/${medicationId}/comments/${id}`)
       .then(res => {
-        setComments(comments.filter( c => c.id !== id))
+        setComments(comments.filter( c => c.id !== id))  
       })
       .catch( err => console.log(err))
   }

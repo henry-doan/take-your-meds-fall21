@@ -7,11 +7,10 @@ const Welcome = () => (
   <Header as="h3" textAlign="center">Welcome </Header>
   <h1>Medication Tracker</h1>
   <h3>Track, Log, Live</h3>
-  <Link to="/medications" >
-      <Button >Medication </Button>
-  </Link>
+  <img src="/Logo.png"/>
+
+
   </>
+
 )
-
-
 export default Welcome;

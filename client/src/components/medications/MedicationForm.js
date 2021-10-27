@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { MedicationConsumer } from '../../providers/MedicationProvider';
 import { Button, Form} from 'semantic-ui-react';
 
-const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, updateMedication, history }) => {
+
+const MedicationForm = ({ toggleForm, addMedication, name, nickname, strength, dosage, id, updateMedication, history }) => {
   const [medication, setMedication] = useState({ name: "", nickname: "", strength: "", dosage:"" , currently_taking: true })
 
   useEffect( () => {
@@ -19,6 +20,7 @@ const MedicationForm = ({ addMedication, name, nickname, strength, dosage, id, u
       addMedication(medication)
     }
     setMedication({ name: "", nickname: "", strength: "", dosage:"" })
+    toggleForm(false)
   }
 
   return (

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ConnectedCommentForm from "./CommentForm";
 import CommentForm from './CommentForm';
 import { withRouter } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
+import { Button, Modal, Header} from 'semantic-ui-react';
 const Comment = ({match , medicationId, id, title, description, deleteComment, updateComment }) => {
   const [editing, setEdit] = useState(false)
 
@@ -14,7 +16,7 @@ const Comment = ({match , medicationId, id, title, description, deleteComment, u
         {
           editing ?
           <>
-            <CommentForm
+            <ConnectedCommentForm
               id={id}
               title={title}
               description={description}
