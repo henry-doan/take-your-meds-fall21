@@ -4,7 +4,7 @@ import { Button, Modal, Header} from 'semantic-ui-react';
 import ConnectedCommentForm from "./CommentForm";
 import { CommentConsumer } from "../../providers/CommentProvider";
 import Comments from  '../comments/Comments'
-
+import CommentForm from "./CommentForm";
 import { withRouter } from "react-router-dom";
 
 const ShowComment = ({ location, match, updateComment, history, deleteComment }) => {

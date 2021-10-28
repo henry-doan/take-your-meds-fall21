@@ -11,7 +11,7 @@ import CommentForm from '../comments/CommentForm'
 import { withRouter } from "react-router-dom";
 import Comments from "../comments/Comments";
 import MedicationTaking from './MedicationTaking';
-
+import DosageForm from './DosageForm';
 const StopTakingButton = styled.button`
 background-color: #FF0000;
 font-size: 20px;
@@ -31,6 +31,21 @@ display: grid;
 place-content: center;
 `
 
+const ImageContainer = styled.div`
+width: 100px;
+height: 100px;
+position: relative;
+overflow: hidden;
+border-radius: 50%;
+`
+
+const ImgPic = styled.img`
+display: inline;
+margin: 0 auto;
+margin-left: -25%; 
+height: 100%;
+width: auto;
+`
 
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
@@ -59,7 +74,9 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Grid>
         <Grid.Row>
           <Grid.Column width="4" textAlign="center">
-              <Image size="medium" circular src={img}/>
+            <ImageContainer>
+            <ImgPic  src={img}/>
+            </ImageContainer>
           </Grid.Column>
           <Grid.Column width="12" textAlign="left" verticalAlign="middle">
             <List.Header>{nickname}   
@@ -105,14 +122,14 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Button>Go Home</Button>
       </Link> */}
       <Segment>
-<<<<<<< HEAD
-      <Comments medicationId={id}/>
-=======
-      {/* <ShowComment medicationId={id}/> */}
+        <List.Header>{strength}  </List.Header>
+      </Segment>
+      <Segment>
+        {dosage} 
+      </Segment>
+        <DosageForm/>
       <Comments medicationId={id}/>
 
->>>>>>> 8cb7dc0 (stashing stuff)
-      </Segment>
       <MedicationTaking medicationId={id}
         currently_taking={currently_taking}
       />

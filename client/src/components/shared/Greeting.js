@@ -14,7 +14,7 @@ function Greeting() {
   }
 
   return (
-    <h1> Good {timeOfDay}.</h1>
+    <h1> Good {timeOfDay}</h1>
   )
 };
 

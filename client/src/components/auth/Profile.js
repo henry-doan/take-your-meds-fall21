@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
 
-import { Card, Container, Grid, Button, Form, Image, GridColumn } from 'semantic-ui-react';
+import { Card, Container, Grid, Button, Form, Image, GridColumn, Header } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
 
@@ -20,9 +20,33 @@ const styles = {
   },
 }
 
+const StyledH1 = styled.h1`
+  font-size: 40px;
+  margin-bottom: 0;
+  display: grid;
+  place-content: center;
+`
+const StyledP = styled.p`
+  font-size: 40px;
+  margin-bottom: 0;
+  display: grid;
+  place-content: center;
+  font-family: Verdana;
+`
+
+
+const UnderlineProfile = styled.h1`
+text-decoration: underline;
+text-decoration-color: #80B641;
+text-decoration-thickness: 20%;
+text-underline-offset
+`
+
+
 const ImageContainer = styled.div`
   display: grid;
   place-content: center;
+  border-radius: 50%
   `
   const UserContainer = styled.div`
   display: grid;
@@ -53,7 +77,7 @@ const Profile = ({ user, updateUser }) => {
           <ImageContainer>
             <Image src={ formVals.image || defaultImage } />
           </ImageContainer>
-            <h1>{user.user.first_name} {user.user.last_name}</h1>         
+            <StyledP>{user.user.first_name} {user.user.last_name}</StyledP>         
           <Card>
             <Grid columns={3} textAlign="center">
               <Grid.Row>
@@ -215,6 +239,7 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <>
+    <UnderlineProfile>Profile</UnderlineProfile>
     {
       user.user ?
       <>

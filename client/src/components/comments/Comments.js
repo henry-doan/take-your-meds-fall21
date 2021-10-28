@@ -5,9 +5,9 @@ const Comments = ({medicationId}) => (
 
 
   <>
-  <CommentList medicationId={medicationId} />
-  <br/>
   <CommentForm medicationId={medicationId} />
+  <br/>
+  <CommentList medicationId={medicationId} />
 
   </>
 )
