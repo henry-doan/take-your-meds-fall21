@@ -1,5 +1,5 @@
 import { MedicationConsumer } from '../../providers/MedicationProvider';
-import { List, Segment, Divider, Grid } from 'semantic-ui-react';
+import { List, Segment, Divider, Grid, Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Med1 from '../../images/meds/download.png';
@@ -30,7 +30,7 @@ const AllMyMedications = ({ medications, grabMedications }) => {
                     <Grid.Column width="4" textAlign="center">
 
                   <Segment compact>
-                  <img src={m.img} size="small" width="200px"/>
+                  <Image src={m.img} size="small" width="200px" height="160px"/>
                   </Segment>
                   </Grid.Column>
 

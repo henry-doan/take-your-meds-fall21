@@ -41,7 +41,7 @@ const Profile = ({ user, updateUser }) => {
           user.user ? 
           <>
           <Grid.Column width={4}>
-            <Image src={ formVals.image || defaultImage } />
+            <Image height="100px "src={ formVals.image || defaultImage } />
           </Grid.Column>
           <Grid.Column width={8}>
             <h1>{user.user.first_name} {user.user.last_name}</h1>
