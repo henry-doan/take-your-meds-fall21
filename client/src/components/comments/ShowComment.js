@@ -25,7 +25,7 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
 
 
   const { id, title, description  } = comment
-  return (
+  return(
     <>  
     <Header>Comment</Header>
       <Modal
@@ -36,7 +36,7 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
       <Modal.Header>Editing {title} </Modal.Header>
       <Modal.Content>
         <Modal.Description>
-        <ConnectedCommentForm
+        <CommentForm
         id={id}
         title={title}
         description={description}
