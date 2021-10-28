@@ -10,7 +10,7 @@ import ConnectedMedicationTaking from "./MedicationTaking";
 import CommentForm from '../comments/CommentForm'
 import { withRouter } from "react-router-dom";
 import Comments from "../comments/Comments";
-
+import MedicationTaking from './MedicationTaking';
 
 const StopTakingButton = styled.button`
 background-color: #FF0000;
@@ -24,6 +24,8 @@ padding: 15px 100px;
 width: 100%;
 margin: 0 auto;
 `
+
+
 const ButtonContainer = styled.div`
 display: grid;
 place-content: center;
@@ -47,7 +49,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
   }
 
 
-  const { id, name, nickname, strength, dosage, img  } = medication
+  const { id, name, nickname, strength, dosage, img, currently_taking  } = medication
   const [archiveMed, setArchiveMed] = useState(false)
   return (
     <>  
@@ -60,7 +62,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
               <Image size="medium" circular src={img}/>
           </Grid.Column>
           <Grid.Column width="12" textAlign="left" verticalAlign="middle">
-            <List.Header>{nickname}
+            <List.Header>{nickname}   
             <Modal
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
@@ -105,9 +107,9 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Segment>
       <Comments medication={id}/>
       </Segment>
-      <ButtonContainer>
-        <StopTakingButton onClick={() => setArchiveMed(!archiveMed)}>Stop Taking This Medication</StopTakingButton>
-      </ButtonContainer>
+      <MedicationTaking medicationId={id}
+        currently_taking={currently_taking}
+      />
 
     </>
   )
