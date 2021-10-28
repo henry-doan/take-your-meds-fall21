@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-import { Container, Grid, Button, Form, Image, GridColumn } from 'semantic-ui-react';
+import { Card, Container, Grid, Button, Form, Image, GridColumn } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
+import styled from 'styled-components';
 
 const defaultImage = 'https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png';
 
@@ -18,6 +19,14 @@ const styles = {
   },
 }
 
+const ImageContainer = styled.div`
+  display: grid;
+  place-content: center;
+  `
+  const UserContainer = styled.div`
+  display: grid;
+  place-content: center;
+  `
 const Profile = ({ user, updateUser }) => {
   const [editing, setEditing] = useState(false)
   const [formVals, setFormValue] = useState({ 
@@ -40,19 +49,59 @@ const Profile = ({ user, updateUser }) => {
           
           user.user ? 
           <>
-          <Grid.Column width={4}>
+          <ImageContainer>
             <Image src={ formVals.image || defaultImage } />
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <h1>{user.user.first_name} {user.user.last_name}</h1>
-            <p>Age: {user.user.age}</p>
-            <p>Height: {user.user.height}</p>
-            <p>Weight: {user.user.weight}</p>
-            <p>Gender: {user.user.gender}</p>
-            <p>Blood: {user.user.blood}</p>
-            <p>Address: {user.user.address}</p>
-            <p>Phone: {user.user.phone}</p>
-          </Grid.Column>
+          </ImageContainer>
+            <h1>{user.user.first_name} {user.user.last_name}</h1>         
+          <Card>
+            <Grid columns={3} textAlign="center">
+              <Grid.Row>
+                <Grid.Column>
+                  <h4>Age</h4> 
+                  <p>{user.user.age}</p>
+                </Grid.Column>
+                <Grid.Column>
+                  <h4>Blood</h4>
+                  <p>{user.user.blood}</p>
+                </Grid.Column>
+                <Grid.Column>
+                  <h4>Gender</h4>
+                  <p>{user.user.gender}</p>
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <Grid.Column>
+                  <h4>Height</h4>
+                  <p>{user.user.height}</p>
+                </Grid.Column>
+                <Grid.Column>
+                  <h4>Weight</h4>
+                  <p>{user.user.weight}</p>
+                </Grid.Column>
+                <Grid.Column>
+                  <h4>Med Count</h4>
+                  <p>{user.user.med_count}</p>
+                </Grid.Column>
+              </Grid.Row>            
+            </Grid>          
+          </Card>
+          <Grid>
+            <UserContainer>
+            <Card>
+              <Grid.Row>
+                <h4>Address</h4>
+                <p>{user.user.address}</p>
+            </Grid.Row>
+            <br></br>
+            <Grid.Row>
+                <h4>Phone</h4>
+                <p>{user.user.phone}</p>
+            </Grid.Row>
+            <br></br>
+            </Card>
+            </UserContainer>
+          </Grid>
           </>
           :
           <p>Loading</p>
@@ -170,7 +219,6 @@ const Profile = ({ user, updateUser }) => {
       <>
       <Container>
         <br/>
-        <Grid>
           { editing ? editView() : profileView() }
           {editing ? <> </> : 
           
@@ -179,8 +227,6 @@ const Profile = ({ user, updateUser }) => {
         </Button>
 
           }
-
-      </Grid>
       </Container>
       </>
       :
