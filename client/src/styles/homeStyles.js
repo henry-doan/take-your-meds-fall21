@@ -23,3 +23,4 @@ export const LandingContainer = styled.div`
   display: grid;
   place-content: center;
 `
+
