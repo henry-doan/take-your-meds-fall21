@@ -15,7 +15,6 @@ const AllMyMedications = ({ medications, grabMedications }) => {
     <>
         { medications.map( m => 
           
-             m.currently_taking ? 
               <Link style={{textDecoration: "none", color: "black"}} to={{
                 pathname: `/medications/${m.id}`,
                 state: {
@@ -46,8 +45,7 @@ const AllMyMedications = ({ medications, grabMedications }) => {
                 </List.Content>
               </List.Item>
             </Link>
-            :
-            <> </>
+              
         )}
         <br></br>
     </>
