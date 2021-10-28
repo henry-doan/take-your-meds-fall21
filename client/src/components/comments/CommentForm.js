@@ -31,7 +31,7 @@ const CommentForm = ({ match, addComment, medicationId, updateComment, title, de
           required
           placeholder="Comment Title"
         />
-        <Form.Input
+        <Form.TextArea
           name='description'
           value={comment.description}
           onChange={(e) => setComment({...comment, description: e.target.value })}

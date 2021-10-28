@@ -30,7 +30,7 @@ const AllMyMedications = ({ medications, grabMedications }) => {
                     <Grid.Column width="4" textAlign="center">
 
                   <Segment compact>
-                  <img src={Med2} size="small" width="200px"/>
+                  <img src={m.img} size="small" width="200px"/>
                   </Segment>
                   </Grid.Column>
 

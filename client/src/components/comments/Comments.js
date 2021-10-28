@@ -5,8 +5,10 @@ const Comments = ({medicationId}) => (
 
 
   <>
-  <CommentForm medicationId={medicationId} />
   <CommentList medicationId={medicationId} />
+  <br/>
+  <CommentForm medicationId={medicationId} />
+
   </>
 )
 
