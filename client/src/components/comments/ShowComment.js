@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
 import { Button, Modal, Header} from 'semantic-ui-react';
 import ConnectedCommentForm from "./CommentForm";
-import Moment from 'react-moment';
 import { CommentConsumer } from "../../providers/CommentProvider";
 import Comments from  '../comments/Comments'
 
@@ -30,14 +28,10 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
   return (
     <>  
     <Header>Comment</Header>
-      {/* <Moment format="MM/DD/YY"> {created_at}</Moment> */}
-      {/* <h1>{title}</h1>
-      <h3>{description}</h3> */}
       <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      // trigger={<Button>Add</Button>}
     >
       <Modal.Header>Editing {title} </Modal.Header>
       <Modal.Content>
@@ -55,12 +49,6 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
         </Button>
       </Modal.Actions>
     </Modal>
-      {/* <Button color="red" onClick={() => deleteComment(id)}> Delete</Button> */}
-      <Link to="/" >
-      {/* <Button>Go Home</Button> */}
-      </Link>
-      {/* <Comments id={id}/> */}
-
     </>
   )
 }

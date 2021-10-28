@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
+
 import { Card, Container, Grid, Button, Form, Image, GridColumn } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
