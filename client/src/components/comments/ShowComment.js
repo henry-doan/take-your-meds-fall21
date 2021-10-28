@@ -4,7 +4,7 @@ import { Button, Modal, Header} from 'semantic-ui-react';
 import ConnectedCommentForm from "./CommentForm";
 import { CommentConsumer } from "../../providers/CommentProvider";
 import Comments from  '../comments/Comments'
-
+import CommentForm from "./CommentForm";
 import { withRouter } from "react-router-dom";
 
 const ShowComment = ({ location, match, updateComment, history, deleteComment }) => {
@@ -25,7 +25,7 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
 
 
   const { id, title, description  } = comment
-  return (
+  return(
     <>  
     <Header>Comment</Header>
       <Modal
@@ -36,7 +36,7 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
       <Modal.Header>Editing {title} </Modal.Header>
       <Modal.Content>
         <Modal.Description>
-        <ConnectedCommentForm
+        <CommentForm
         id={id}
         title={title}
         description={description}

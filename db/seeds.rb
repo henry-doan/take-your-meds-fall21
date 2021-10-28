@@ -1,20 +1,21 @@
 User.destroy_all
 
 @user = User.create(
-	email: "admin@test.com",
+	email: "Meg2@test.com",
 	password: "password",
-	first_name: "Frank",
-	last_name: "Abagnale Jr",
+	first_name: "Meg",
+	last_name: "Graham ",
 	age: 34,
-	height: %q[6'2"],
-	weight: 215.4,
-	gender: "Male",
-	blood: "B+",
+	height: %q[5'1"],
+	weight: 115.4,
+	gender: "Female",
+	blood: "A+",
 	address: "5678 Nice St, Anywhere, USA",
 	phone: "800-867-5309"
 )
 
 	@medication1 = @user.medications.create(
+			img: "https://images.unsplash.com/photo-1587854680352-936b22b91030?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGlsbHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", 
 			name: "Ibuprofen",
 			nickname: "Pain Reliever",
 			strength: "200mg",
@@ -28,6 +29,7 @@ User.destroy_all
 			)
 	
 	@medication2 = @user.medications.create(
+		img: "https://images.unsplash.com/photo-1583088580009-2d947c3e90a6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGlsbHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 			name: "Amoxicillin",
 			nickname: "Antibiotic",
 			strength: "875mg",
@@ -41,6 +43,7 @@ User.destroy_all
 				)
 	
 	@medication3 = @user.medications.create(
+		img: "https://images.unsplash.com/photo-1594362323815-70c3944df76a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cGlsbHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 		name: "Atorvastatin",
 		nickname: "Cholesterol Med",
 		strength: "10mg",
@@ -54,6 +57,7 @@ User.destroy_all
 			)
 	
 	@medication4 = @user.medications.create(
+		img: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGlsbHN8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
 		name: "Omeprazole",
 		nickname: "Heartburn",
 		strength: "20mg",

@@ -9,9 +9,10 @@ const CommentList = ({location,  match, medicationId, grabComments, comments, de
   }, [])
   return (
     <>
-      <h1>Comments</h1>
+      {/* <h1>Comments</h1> */}
       {
           comments.map( c => 
+            
              <Comment
                {...c} 
                deleteComment={deleteComment} 
