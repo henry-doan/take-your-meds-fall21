@@ -1,23 +1,40 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 import ConnectedAllMedications from '../medications/AllMedications';
-import moment from 'moment';
 import Clock from '../shared/Clock';
+import styled from 'styled-components';
+import Greeting from '../shared/Greeting';
 
-const Today = () => (
-  <>
-  <Segment basic>
-    <h3>{moment().format('MMMM Do YYYY')}</h3>
+const ClockContainer = styled.div`
+  display: grid;
+  place-content: center;
+  background-color: #DCEDDA;
+  font-family: Verdana;
+  border-radius: 10px;
+  height: 125px;
+`
 
-    {/* <h1>{moment().format('h:mm:ss a')}</h1> */}
-    <Clock />
-  </Segment>
-  <Segment basic>
-    <h3>Today's Medications</h3>
-    <ConnectedAllMedications /> 
-  </Segment>
+
+const Today = () => {
+  return (
+    <>
+      <Segment basic>
+        <Greeting />
+      </Segment>
+
+      <ClockContainer>
+        <Segment basic>
+          <Clock />
+        </Segment>
+      </ClockContainer>
+
+      <Segment basic>
+        <h3>Today's Medications</h3>
+        <ConnectedAllMedications /> 
+      </Segment>
   </>
-)
+  )
+}
 
 
 export default Today;

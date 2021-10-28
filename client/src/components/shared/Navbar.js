@@ -61,7 +61,7 @@ const Navbar = ({user, handleLogout, location, history }) => {
  
   return (
     <div>
-      <Menu pointing secondary>
+      <Menu pointing secondary stackable>
         <Link to='/today'>
           <Menu.Item
             name='today'

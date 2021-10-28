@@ -3,15 +3,13 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import { Button, Modal, Header, Segment, Card, List, Image, Grid, Icon} from 'semantic-ui-react';
 import ConnectedMedicationForm from "./MedicationForm";
-import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
-import Comments from  '../comments/Comments'
 import ShowComment from  '../comments/ShowComment'
 import styled from "styled-components";
 import ConnectedMedicationTaking from "./MedicationTaking";
-import Comment from  '../comments/Comment'
 import CommentForm from '../comments/CommentForm'
 import { withRouter } from "react-router-dom";
+import Comments from "../comments/Comments";
 
 
 const StopTakingButton = styled.button`
