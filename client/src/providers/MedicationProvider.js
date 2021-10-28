@@ -37,7 +37,7 @@ const MedicationProvider = ({ children }) => {
           return m
         })
         setMedications(updatedMedications)
-        window.location.href = `/medications/`
+        window.location.href = `/medications/${id}`
         //history.push(`/medications/`)
       })
       .catch( err => console.log(err))
