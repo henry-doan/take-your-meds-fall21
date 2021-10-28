@@ -1,17 +1,36 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
-import { Button, Modal, Header} from 'semantic-ui-react';
+import { Button, Modal, Header, Segment, Card, List, Image, Grid, Icon} from 'semantic-ui-react';
 import ConnectedMedicationForm from "./MedicationForm";
 import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
 import Comments from  '../comments/Comments'
 import ShowComment from  '../comments/ShowComment'
-
+import styled from "styled-components";
 import ConnectedMedicationTaking from "./MedicationTaking";
 import Comment from  '../comments/Comment'
 import CommentForm from '../comments/CommentForm'
 import { withRouter } from "react-router-dom";
+
+
+const StopTakingButton = styled.button`
+background-color: #FF0000;
+font-size: 20px;
+color: white;
+font-family: Verdana;
+border-radius: 50px;
+border: none;
+display: inline-block;
+padding: 15px 100px;
+width: 100%;
+margin: 0 auto;
+`
+const ButtonContainer = styled.div`
+display: grid;
+place-content: center;
+`
+
 
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
@@ -30,25 +49,32 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
   }
 
 
-  const { id, name, nickname, strength, dosage  } = medication
+  const { id, name, nickname, strength, dosage, img  } = medication
+  const [archiveMed, setArchiveMed] = useState(false)
   return (
     <>  
       {/* <Moment format="MM/DD/YY"> {created_at}</Moment> */}
-      <h1>{name}</h1>
-      <h3>{nickname}</h3>
-      <p>{strength}</p>
-      <p>{dosage}</p>
-      <Modal
-      onClose={() => setOpen(false)}
-      onOpen={() => setOpen(true)}
-      open={open}
-      trigger={<Button>Edit</Button>}
-    >
-      <Modal.Header>Editing {name} </Modal.Header>
+      <br />
+      <Header>My Medicine</Header>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width="4" textAlign="center">
+              <Image size="medium" circular src={img}/>
+          </Grid.Column>
+          <Grid.Column width="12" textAlign="left" verticalAlign="middle">
+            <List.Header>{nickname}
+            <Modal
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
+            trigger={<Icon name="pencil"/>}
+          > 
+       <Modal.Header>Editing {name} </Modal.Header>
       <Modal.Content>
         <Modal.Description>
         <ConnectedMedicationForm 
         id={id}
+        img={img}
         name={name}
         nickname={nickname}
         strength={strength}
@@ -61,12 +87,29 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
           Cancel
         </Button>
       </Modal.Actions>
-    </Modal>
-      <Button color="red" onClick={() => deleteMedication(id)}> Delete</Button>
-      <Link to="/" >
+    </Modal></List.Header>
+            <List.Header style={{color: "blue"}}>{name}</List.Header>
+            
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      <br/>
+      {/* <h1>{img}</h1>
+      <h1>{name}</h1>
+      <h3>{nickname}</h3>
+      <p>{strength}</p>
+      <p>{dosage}</p> */}
+ 
+      {/* <Icon class="edit outline" color="red" onClick={() => updateMedication(id)}> Delete</Icon> */}
+      {/* <Link to="/" >
       <Button>Go Home</Button>
-      </Link>
-      <ShowComment medicationId={id}/>
+      </Link> */}
+      <Segment>
+      <Comments medication={id}/>
+      </Segment>
+      <ButtonContainer>
+        <StopTakingButton onClick={() => setArchiveMed(!archiveMed)}>Stop Taking This Medication</StopTakingButton>
+      </ButtonContainer>
 
     </>
   )

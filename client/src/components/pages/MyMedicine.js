@@ -16,6 +16,12 @@ const AddButton = styled.button`
   padding: 15px 100px;
   width: 100%;
   margin: 0 auto;
+
+`
+
+const ButtonContainer = styled.div`
+display: grid;
+place-content: center;
 `
 
 
@@ -34,11 +40,11 @@ const MyMedicine = ({ }) => {
   <Segment basic>
     { showForm && <MedicationForm toggleForm={setShowForm}/> }
     <br/>
+    <ButtonContainer>
     <AddButton class="ui primary basic button" onClick={() => setShowForm(!showForm)}>
        { showForm ?  "Close Form" : "Add Another Medicine" }
     </AddButton>
-
-      {/* <MedicationForm /> */}
+    </ButtonContainer>
   </Segment>
 
   </>

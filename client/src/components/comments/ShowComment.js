@@ -29,14 +29,15 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
   const { id, title, description  } = comment
   return (
     <>  
+    <Header>Comment</Header>
       {/* <Moment format="MM/DD/YY"> {created_at}</Moment> */}
-      <h1>{title}</h1>
-      <h3>{description}</h3>
+      {/* <h1>{title}</h1>
+      <h3>{description}</h3> */}
       <Modal
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       open={open}
-      trigger={<Button>Edit</Button>}
+      // trigger={<Button>Add</Button>}
     >
       <Modal.Header>Editing {title} </Modal.Header>
       <Modal.Content>
@@ -54,11 +55,11 @@ const ShowComment = ({ location, match, updateComment, history, deleteComment })
         </Button>
       </Modal.Actions>
     </Modal>
-      <Button color="red" onClick={() => deleteComment(id)}> Delete</Button>
+      {/* <Button color="red" onClick={() => deleteComment(id)}> Delete</Button> */}
       <Link to="/" >
-      <Button>Go Home</Button>
+      {/* <Button>Go Home</Button> */}
       </Link>
-      <Comments id={id}/>
+      {/* <Comments id={id}/> */}
 
     </>
   )
