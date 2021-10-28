@@ -105,7 +105,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Button>Go Home</Button>
       </Link> */}
       <Segment>
-      <Comments medication={id}/>
+      <Comments medicationId={id}/>
       </Segment>
       <MedicationTaking medicationId={id}
         currently_taking={currently_taking}

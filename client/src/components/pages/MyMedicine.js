@@ -4,6 +4,7 @@ import { Button, Segment, Header } from 'semantic-ui-react';
 import ShowMedication from '../medications/ShowMedication';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import AllMedications from '../medications/AllMedications';
 
 const AddButton = styled.button`
   background-color: #50A646;
