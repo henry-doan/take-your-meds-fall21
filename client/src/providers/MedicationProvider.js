@@ -53,6 +53,10 @@ const MedicationProvider = ({ children }) => {
       .catch( err => console.log(err))
   }
 
+  const countMeds = () => {
+    return medications.length()
+  }
+
   return (
     <MedicationContext.Provider value={{
       medications,
@@ -60,6 +64,7 @@ const MedicationProvider = ({ children }) => {
       addMedication: addMedication,
       updateMedication: updateMedication,
       deleteMedication: deleteMedication,
+      countMeds: countMeds
     }}>
       { children }
     </MedicationContext.Provider>
