@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { AuthConsumer } from '../../providers/AuthProvider';
-
-import { Card, Container, Grid, Button, Form, Image, GridColumn, Header } from 'semantic-ui-react';
+import MedicationProvider from '../../providers/MedicationProvider';
+import { Card, Container, Grid, Button, Form, Image, Icon, Divider, Segment } from 'semantic-ui-react';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
 
@@ -29,8 +29,8 @@ const StyledH1 = styled.h1`
 const StyledP = styled.p`
   font-size: 40px;
   margin-bottom: 0;
-  display: grid;
-  place-content: center;
+  display: inline-block;
+  place-content: right;
   font-family: Verdana;
 `
 
@@ -52,7 +52,8 @@ const ImageContainer = styled.div`
   display: grid;
   place-content: center;
   `
-const Profile = ({ user, updateUser }) => {
+  
+const Profile = ({ user, updateUser, countMeds, grabMedications }) => {
   const [editing, setEditing] = useState(false)
   const [formVals, setFormValue] = useState({ 
         first_name: '', last_name: '', email: '', file: '', age: '', height: '',
@@ -61,6 +62,8 @@ const Profile = ({ user, updateUser }) => {
   useEffect( () => {
     const { first_name, last_name, email, image, age, height, weight, gender, blood, address, phone } = user.user 
     setFormValue({ first_name, last_name, email, image, age, height, weight, gender, blood, address, phone })
+    // grabMedications()
+    // countMeds()
   }, [])
 
   const onDrop = (files) => {
@@ -77,14 +80,23 @@ const Profile = ({ user, updateUser }) => {
           <ImageContainer>
             <Image src={ formVals.image || defaultImage } />
           </ImageContainer>
-            <StyledP>{user.user.first_name} {user.user.last_name}</StyledP>         
-          <Card>
-            <Grid columns={3} textAlign="center">
+          <br/>
+            <StyledP>{user.user.first_name} {user.user.last_name}     {editing ? <> </> : 
+          <Icon display="inline" size="small" name="pencil" onClick={() => setEditing(!editing)}>
+          </Icon>
+    }</StyledP>         
+          <Segment>
+            <Grid columns={3} textAlign="center" divided>
+
               <Grid.Row>
                 <Grid.Column>
+                  <div>
                   <h4>Age</h4> 
                   <p>{user.user.age}</p>
+                  </div>
+
                 </Grid.Column>
+
                 <Grid.Column>
                   <h4>Blood</h4>
                   <p>{user.user.blood}</p>
@@ -94,6 +106,7 @@ const Profile = ({ user, updateUser }) => {
                   <p>{user.user.gender}</p>
                 </Grid.Column>
               </Grid.Row>
+              <Divider/>
 
               <Grid.Row>
                 <Grid.Column>
@@ -103,30 +116,48 @@ const Profile = ({ user, updateUser }) => {
                 <Grid.Column>
                   <h4>Weight</h4>
                   <p>{user.user.weight}</p>
+
                 </Grid.Column>
+
                 <Grid.Column>
                   <h4>Med Count</h4>
-                  <p>{user.user.med_count}</p>
+                  <p>{"10"}</p>
+
                 </Grid.Column>
-              </Grid.Row>            
-            </Grid>          
-          </Card>
-          <Grid>
+
+              </Grid.Row>
+            
+            </Grid>
+          </Segment>
+
+          <br/>
+          <Segment>
             <UserContainer>
-            <Card>
+            <Grid>
               <Grid.Row>
-                <h4>Address</h4>
+                <h4>Home Address</h4>
                 <p>{user.user.address}</p>
             </Grid.Row>
+            <Divider/>
+
             <br></br>
             <Grid.Row>
                 <h4>Phone</h4>
-                <p>{user.user.phone}</p>
+                <p textAlign="left">{user.user.phone}</p>
+
             </Grid.Row>
+            <Divider/>
+
             <br></br>
-            </Card>
+            <Grid.Row>
+                <h4>Email</h4>
+                <p>{user.user.email}</p>
+            </Grid.Row>
+
+            <br></br>
+            </Grid>
             </UserContainer>
-          </Grid>
+          </Segment>
           </>
           :
           <p>Loading</p>
@@ -239,20 +270,19 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <>
-    <UnderlineProfile>Profile</UnderlineProfile>
+    <UnderlineProfile>Profile
+    </UnderlineProfile>
     {
       user.user ?
       <>
+
       <Container>
         <br/>
           { editing ? editView() : profileView() }
-          {editing ? <> </> : 
-          
-          <Button onClick={() => setEditing(!editing)}>
-            edit
-        </Button>
-
-          }
+          {/* {editing ? <> </> : 
+          <Icon name="pencil" onClick={() => setEditing(!editing)}>
+          </Icon>
+          } */}
       </Container>
       </>
       :
