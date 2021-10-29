@@ -87,7 +87,7 @@ const Profile = ({ user, updateUser }) => {
       blood,
       address,
       phone,
-    } = user.user;3
+    } = user.user;
     setFormValue({
       first_name,
       last_name,
