@@ -3,17 +3,15 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import { Button, Modal, Header, Segment, Card, List, Image, Grid, Icon} from 'semantic-ui-react';
 import ConnectedMedicationForm from "./MedicationForm";
-import Moment from 'react-moment';
 import { MedicationConsumer } from "../../providers/MedicationProvider";
-import Comments from  '../comments/Comments'
 import ShowComment from  '../comments/ShowComment'
 import styled from "styled-components";
 import ConnectedMedicationTaking from "./MedicationTaking";
-import Comment from  '../comments/Comment'
 import CommentForm from '../comments/CommentForm'
 import { withRouter } from "react-router-dom";
-
-
+import Comments from "../comments/Comments";
+import MedicationTaking from './MedicationTaking';
+import DosageForm from './DosageForm';
 const StopTakingButton = styled.button`
 background-color: #FF0000;
 font-size: 20px;
@@ -26,11 +24,28 @@ padding: 15px 100px;
 width: 100%;
 margin: 0 auto;
 `
+
+
 const ButtonContainer = styled.div`
 display: grid;
 place-content: center;
 `
 
+const ImageContainer = styled.div`
+width: 100px;
+height: 100px;
+position: relative;
+overflow: hidden;
+border-radius: 50%;
+`
+
+const ImgPic = styled.img`
+display: inline;
+margin: 0 auto;
+margin-left: -25%; 
+height: 100%;
+width: auto;
+`
 
 const ShowMedication = ({ location, match, updateMedication, history, deleteMedication }) => {
   const [medication, setMedication] = useState([])
@@ -49,7 +64,7 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
   }
 
 
-  const { id, name, nickname, strength, dosage, img  } = medication
+  const { id, name, nickname, strength, dosage, img, currently_taking  } = medication
   const [archiveMed, setArchiveMed] = useState(false)
   return (
     <>  
@@ -59,10 +74,12 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Grid>
         <Grid.Row>
           <Grid.Column width="4" textAlign="center">
-              <Image size="medium" circular src={img}/>
+            <ImageContainer>
+            <ImgPic  src={img}/>
+            </ImageContainer>
           </Grid.Column>
           <Grid.Column width="12" textAlign="left" verticalAlign="middle">
-            <List.Header>{nickname}
+            <List.Header>{nickname}   
             <Modal
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
@@ -105,11 +122,17 @@ const ShowMedication = ({ location, match, updateMedication, history, deleteMedi
       <Button>Go Home</Button>
       </Link> */}
       <Segment>
-      <Comments medication={id}/>
+        <List.Header>{strength}  </List.Header>
       </Segment>
-      <ButtonContainer>
-        <StopTakingButton onClick={() => setArchiveMed(!archiveMed)}>Stop Taking This Medication</StopTakingButton>
-      </ButtonContainer>
+      <Segment>
+        {dosage} 
+      </Segment>
+        <DosageForm/>
+      <Comments medicationId={id}/>
+
+      <MedicationTaking medicationId={id}
+        currently_taking={currently_taking}
+      />
 
     </>
   )

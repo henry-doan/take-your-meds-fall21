@@ -77,8 +77,10 @@ const Navbar = ({user, handleLogout, location, history }) => {
  
   return (
     <div>
+
       <Menu pointing secondary>
       { leftNavItems() }
+
           { rightNavItems() }
 
       </Menu>

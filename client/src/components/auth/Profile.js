@@ -6,10 +6,33 @@ import styled from "styled-components";
 const defaultImage = "https://d30y9cdsu7xlg0.cloudfront.net/png/15724-200.png";
 
 
+const StyledH1 = styled.h1`
+  font-size: 40px;
+  margin-bottom: 0;
+  display: grid;
+  place-content: center;
+`
+const StyledP = styled.p`
+  font-size: 40px;
+  margin-bottom: 0;
+  display: inline-block;
+  place-content: right;
+  font-family: Verdana;
+`
+
+
+const UnderlineProfile = styled.h1`
+text-decoration: underline;
+text-decoration-color: #80B641;
+text-decoration-thickness: 20%;
+text-underline-offset
+`
+
 
 const ImageContainer = styled.div`
   display: grid;
   place-content: center;
+
 `;
 const UserContainer = styled.div`
   display: grid;
@@ -80,6 +103,7 @@ const Profile = ({ user, updateUser }) => {
     });
   }, []);
 
+
   const onDrop = (files) => {
     setFormValue({ ...formVals, file: files[0] });
   };
@@ -89,6 +113,7 @@ const Profile = ({ user, updateUser }) => {
       <div>      
         {user.user ? (
           <>
+
             <UnderlineProfile className="profile-title">
               Profile
             </UnderlineProfile>
@@ -142,7 +167,7 @@ const Profile = ({ user, updateUser }) => {
                     </Grid.Column>
                     <Grid.Column className="bordered-med-count" >
                       <h4>Med Count</h4>
-                      <p>{user.user.med_count}</p>
+                      <p>{"10"}</p>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -166,6 +191,7 @@ const Profile = ({ user, updateUser }) => {
                 </UserContainer>
               </Grid>
             </CardContainer>
+
           </>
         ) : (
           <p>Loading</p>
@@ -296,6 +322,7 @@ const Profile = ({ user, updateUser }) => {
 
   return (
     <>
+
       {user.user ? (
         <>
           <Container className="profile-background">
@@ -308,6 +335,7 @@ const Profile = ({ user, updateUser }) => {
       ) : (
         <p></p>
       )}
+
     </>
   );
 };

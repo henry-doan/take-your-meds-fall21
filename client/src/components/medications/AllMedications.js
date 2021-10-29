@@ -1,7 +1,7 @@
 import { MedicationConsumer } from '../../providers/MedicationProvider';
-import { List } from 'semantic-ui-react';
+import { List, Segment, Grid, Checkbox } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const AllMedications = ({ medications, grabMedications }) => {
 
@@ -9,25 +9,51 @@ const AllMedications = ({ medications, grabMedications }) => {
     grabMedications()
   }, [])
 
+  const square = { width: 50, height: 50 }
+
+
   return(
     <>
-      <List divided relaxed>
-        {medications.map( m => 
-          <Link to={{
-            pathname: `/medications/${m.id}`,
-            state: {
-              ...m
-            }
-          }}>
-            <List.Item>
-              <List.Content>
-                <List.Header>{m.name}</List.Header>
-              </List.Content>
-            </List.Item>
-          </Link>
-        )}
-      </List>
-    </>
+      { medications.map( m => 
+          
+          m.currently_taking ? 
+
+           <List.Item>
+             <List.Content>
+               <Grid columns={3}>
+                  <Grid.Row>
+                    <Link style={{textDecoration: "none", color: "black"}} to={{
+                      pathname: `/medications/${m.id}`,
+                      state: {...m}
+                      }}>
+                      <Grid.Column width={4} textAlign="left">
+                        {/* <Segment circular style={square}> */}
+                          <img src={m.img} size="small" width="50px" />
+                        {/* </Segment> */}
+                      </Grid.Column>
+
+                      <Grid.Column width={8} textAlign="left" verticalAlign="middle">
+                        <Segment basic>
+                        <List.Header>{m.name}</List.Header>
+                        <List.Header style={{color: "green"}}>{m.nickname}</List.Header>
+                        </Segment>
+                      </Grid.Column>
+                    </Link>
+
+                    <Grid.Column width={4}>
+                      <div class="ui radio checkbox"><input type="checkbox" class="hidden" readonly="" tabindex="0"/><label>Taken Today?</label></div>
+                    </Grid.Column>
+
+                  </Grid.Row>
+               </Grid>               
+             </List.Content>
+           </List.Item>
+         :
+         <> 
+      </>
+     )}
+     <br></br>
+  </>
   )
 }
 
