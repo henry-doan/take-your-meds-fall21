@@ -1,15 +1,15 @@
 User.destroy_all
 
 @user = User.create(
-	email: "Meg2@test.com",
+	email: "admin@test.com",
 	password: "password",
-	first_name: "Meg",
-	last_name: "Graham ",
+	first_name: "Frank",
+	last_name: "Abagnale",
 	age: 34,
-	height: %q[5'1"],
-	weight: 115.4,
-	gender: "Female",
-	blood: "A+",
+	height: %q[6'1"],
+	weight: 208.6,
+	gender: "Male",
+	blood: "O-",
 	address: "5678 Nice St, Anywhere, USA",
 	phone: "800-867-5309"
 )
