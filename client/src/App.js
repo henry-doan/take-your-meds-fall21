@@ -17,7 +17,6 @@ import Landing from './components/shared/Landing';
 
 const App = () => (
   <>
-
   <Navbar />
   <FetchUser>
     <Container>
@@ -36,7 +35,6 @@ const App = () => (
       </Switch>
     </Container>
   </FetchUser>
-
   </>
 )
 

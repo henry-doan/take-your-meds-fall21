@@ -7,8 +7,6 @@
     "lib": "lib",
     "test": "test"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
     "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/",

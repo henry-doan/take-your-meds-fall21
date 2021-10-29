@@ -12,7 +12,6 @@ initMiddleware()
 
 
 ReactDOM.render(
-
   <AuthProvider>
     <MedicationProvider>
       <CommentProvider>
