@@ -21,12 +21,12 @@ const StyledP = styled.p`
 `
 
 
-const UnderlineProfile = styled.h1`
-text-decoration: underline;
-text-decoration-color: #80B641;
-text-decoration-thickness: 20%;
-text-underline-offset
-`
+// const UnderlineProfile = styled.h1`
+// text-decoration: underline;
+// text-decoration-color: #80B641;
+// text-decoration-thickness: 20%;
+// text-underline-offset
+// `
 
 
 const ImageContainer = styled.div`
@@ -87,7 +87,7 @@ const Profile = ({ user, updateUser }) => {
       blood,
       address,
       phone,
-    } = user.user;
+    } = user.user;3
     setFormValue({
       first_name,
       last_name,
