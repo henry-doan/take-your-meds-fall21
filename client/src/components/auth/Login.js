@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Button, Form, Segment, Header } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 const Login = ({ handleLogin, history }) => {
   const [user, setUser] = useState({ email: '', password: '' })
@@ -9,6 +10,19 @@ const Login = ({ handleLogin, history }) => {
     e.preventDefault();
     handleLogin(user, history);
   }
+
+  const LoginButton = styled.button`
+  background-color: #50A646;
+  font-size: 16px;
+  color: white;
+  font-family: Verdana;
+  border-radius: 50px;
+  border: none;
+  display: inline-block;
+  padding: 10px 10px;
+  width: 50%;
+  margin: 0 auto;
+`
   
   return (
     <Segment basic>
@@ -33,7 +47,7 @@ const Login = ({ handleLogin, history }) => {
           onChange={(e, { value }) => setUser({ ...user, password: value })}
         />
         <Segment textAlign='center' basic>
-          <Button primary type='submit'>Submit</Button>
+          <LoginButton primary type='submit'>Submit</LoginButton>
         </Segment>
       </Form>
     </Segment>

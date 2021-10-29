@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from "./providers/AuthProvider";
 import 'semantic-ui-css/semantic.min.css';
 import { initMiddleware } from 'devise-axios';
+import MedicationProvider from './providers/MedicationProvider';
+import CommentProvider from './providers/CommentProvider'
+import './index.css';
 
 initMiddleware()
 
@@ -11,9 +14,13 @@ initMiddleware()
 ReactDOM.render(
 
   <AuthProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <MedicationProvider>
+      <CommentProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CommentProvider>
+    </MedicationProvider>
   </AuthProvider>,
   document.getElementById('root')
 );

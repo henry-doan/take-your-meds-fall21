@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  description: MyText
+  description: MyString
   medication: one
 
 two:
   title: MyString
-  description: MyText
+  description: MyString
   medication: two
