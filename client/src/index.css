@@ -1,11 +1,18 @@
 body {
   margin: 0;
-  font-family: "Veranda", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "Verdana", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100% !important;
+}
+
+.profile-background {
+  background: #F2F2F2;
+  height: 180% !important;
+  
 }
 
 code {
@@ -20,4 +27,68 @@ code {
   border-bottom: none !important;
 }
 
+h4 {
+  color: #2B3857 !important;
+  opacity: 0.3;
+
+}
+
+.profile-name {
+ margin-bottom: 10px !important; 
+}
+
+.profile-info-card {
+  padding: 20px !important;
+  margin-top: 10px !important;
+}
+
+.profile-info-container {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.profile-pic {
+  margin-top: 0px !important;
+  margin-bottom: 10px !important;
+
+}
+
+.bordered-stat {
+  border-right-width: 1px;  
+  border-top-width: 0px;  
+  border-left-width: 0px;  
+  border-bottom-width: 0px;  
+  border-color: rgba(43,56,87, 0.3) !important;
+  border-style: solid;
+}
+
+.bordered-row {
+  border-right-width: 0px;  
+  border-top-width: 0px;  
+  border-left-width: 0px;  
+  border-bottom-width: 1px;  
+  border-color: rgba(43,56,87, 0.3) !important;
+  border-style: solid;
+}
+
+.bordered-med-count {
+  border-right-width: 0px;  
+  border-top-width: 0px;  
+  border-left-width: 1px;  
+  border-bottom-width: 0px;  
+  border-color: rgba(43,56,87, 0.3) !important;
+  border-style: solid;
+}
+
+.profile-logo {
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.profile-title {
+  margin-top: 50px;
+  margin-left: 20px;
+}
 
